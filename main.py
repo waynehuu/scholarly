@@ -34,26 +34,19 @@ energy_terms = [
 ml_terms = [
     'machine learning',
     'deep learning',
-    # 'support vector machine',
-    # 'random forest',
-    # 'regression tree',
-    # 'neural network',
-    # 'regression',
-    # 'classification',
-    # 'detection'
+    'support vector machine',
+    'random forest',
+    'regression tree',
+    'neural network'
 ]
 
 rs_terms = [
     'remote sensing',
     'satellite',
-    # 'aerial',
-    # 'UAV',
-    # 'unmanned aerial vehicle',
-    # 'hyperspectral',
-    # 'imagery',
-    # 'sentinel',
-    # 'landsat',
-    # 'infrared'
+    'aerial',
+    'UAV',
+    'unmanned aerial vehicle',
+    'hyperspectral'
 ]
 
 
