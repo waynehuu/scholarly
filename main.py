@@ -74,7 +74,6 @@ for e in tqdm(energy_terms):
             kw = '+'.join([quote(e), quote(m), quote(r)])
             if year_since or year_to:
                 url = make_url(kw, year_since, year_to)
-                print(url)
                 search_query = scholarly.search_pubs_custom_url(url)
             else:
                 search_query = scholarly.search_pubs_query(kw)
