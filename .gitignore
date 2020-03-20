@@ -14,3 +14,7 @@ setup_notes.md
 .ipynb_checkpoints
 *.ipynb
 .idea
+
+# Personal
+tasks/
+.vscode/
