@@ -14,8 +14,8 @@ completion_file = r'tasks/run04132020/Transmission line/completion.txt'
 
 energy_terms = [
     # 'Wind',
-    'Solar',
-    # 'Power system',
+    # 'Solar',
+    'Power system',
     # 'Energy',
     # 'Generator',
     # 'Coal',
