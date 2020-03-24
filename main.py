@@ -53,17 +53,17 @@ def quote(s):
 
 
 def make_url(kw, year_since, year_to):
-    url = f'/scholar?&q={kw}'
+    url = '/scholar?&q={}'.format(kw)
 
     if year_since is not None:
         assert isinstance(year_since, int)
-        url += f'&as_ylo={year_since}'
+        url += '&as_ylo={}'.format(year_since)
 
     if year_to is not None:
         assert isinstance(year_to, int)
         if year_since is not None:
             assert year_to >= year_since
-        url += f'&as_yhi={year_to}'
+        url += '&as_yhi={}'.format(year_to)
 
     return url
 
@@ -73,16 +73,16 @@ def make_filename(energy_term, year_since, year_to, n_items):
     fname = energy_term
 
     if year_since:
-        fname += f'_since_{year_since}'
+        fname += '_since_{}'.format(year_since)
 
     if year_to:
-        fname += f'_since_{year_to}'
+        fname += '_to_{}'.format(year_to)
 
-    return f'{fname}_first_{n_items}.csv'
+    return '{}_first_{}.csv'.format(fname, n_items)
 
 
 for e in energy_terms:
-    print(f'Scraping for energy term: {e}')
+    print('Scraping for energy term: {}'.format(e))
     results = []
     for m in tqdm(ml_terms):
         for r in rs_terms:
