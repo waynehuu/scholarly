@@ -12,8 +12,8 @@ result_items = 20
 
 energy_terms = [
     # 'Wind',
-    'Solar',
-    # 'Power system',
+    # 'Solar',
+    'Power system',
     # 'Energy',
     # 'Generator',
     # 'Coal',
@@ -67,6 +67,20 @@ def make_url(kw, year_since, year_to):
 
     return url
 
+
+def make_filename(energy_term, year_since, year_to, n_items):
+
+    fname = energy_term
+
+    if year_since:
+        fname += f'_since_{year_since}'
+
+    if year_to:
+        fname += f'_since_{year_to}'
+
+    return f'{fname}_first_{n_items}.csv'
+
+
 for e in energy_terms:
     print(f'Scraping for energy term: {e}')
     results = []
@@ -95,7 +109,4 @@ for e in energy_terms:
                 except StopIteration:
                     break
     results_pd = pd.DataFrame.from_dict(results)
-    results_pd.to_csv(f'./since2015/{e}.csv', index=False)
-    # if not e == energy_terms[-1]:
-    #     pause = random.uniform(300, 600)
-    #     time.sleep(pause)
+    results_pd.to_csv(make_filename(e, year_since, year_to, result_items), index=False)
