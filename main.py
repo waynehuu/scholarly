@@ -3,17 +3,18 @@ import pandas as pd
 from tqdm import tqdm
 import time
 import random
+import os
 
 
 year_since = 2015  # Format: YYYY
 year_to = None  # Format: year_to should be no less than year_since
-
 result_items = 20
+save_root = r'run04132020'
 
 energy_terms = [
     # 'Wind',
-    # 'Solar',
-    'Power system',
+    'Solar',
+    # 'Power system',
     # 'Energy',
     # 'Generator',
     # 'Coal',
@@ -25,25 +26,33 @@ energy_terms = [
     # 'Transmission line',
     # 'Electricity line',
     # 'Energy infrastructure',
-    # 'Electric infrastructure'
+    # 'Electric infrastructure',
+    # 'Renewable'
 ]
 
 ml_terms = [
     'machine learning',
     'deep learning',
-    'support vector machine',
-    'random forest',
-    'regression tree',
-    'neural network'
+    # 'support vector machine',
+    # 'random forest',
+    # 'regression tree',
+    # 'neural network',
+    # 'regression',
+    # 'classification',
+    # 'detection'
 ]
 
 rs_terms = [
     'remote sensing',
     'satellite',
-    'aerial',
-    'UAV',
-    'unmanned aerial vehicle',
-    'hyperspectral'
+    # 'aerial',
+    # 'UAV',
+    # 'unmanned aerial vehicle',
+    # 'hyperspectral',
+    # 'imagery',
+    # 'sentinel',
+    # 'landsat',
+    # 'infrared'
 ]
 
 
@@ -81,32 +90,65 @@ def make_filename(energy_term, year_since, year_to, n_items):
     return '{}_first_{}.csv'.format(fname, n_items)
 
 
-for e in energy_terms:
-    print('Scraping for energy term: {}'.format(e))
+def actual_scrape(result_items, search_query, e, m, r):
     results = []
-    for m in tqdm(ml_terms):
-        for r in rs_terms:
-            kw = '+'.join([quote(e), quote(m), quote(r)])
-            kw = kw.replace(' ', '%20')
-            if year_since or year_to:
-                url = make_url(kw, year_since, year_to)
-                search_query = scholarly.search_pubs_custom_url(url)
+
+    i = 0
+    while i < int(result_items):
+        try:
+            res = next(search_query)
+            i += 1
+            if hasattr(res, 'citedby'):
+                res.bib['citedby'] = res.citedby
             else:
-                search_query = scholarly.search_pubs_query(kw)
-            i = 0
-            while i < int(result_items):
-                try:
-                    res = next(search_query)
-                    i += 1
-                    if hasattr(res, 'citedby'):
-                        res.bib['citedby'] = res.citedby
-                    else:
-                        res.bib['citedby'] = 'NA'
-                    res.bib['kw1'] = e
-                    res.bib['kw2'] = m
-                    res.bib['kw3'] = r
-                    results.append(res.bib)
-                except StopIteration:
-                    break
-    results_pd = pd.DataFrame.from_dict(results)
-    results_pd.to_csv(make_filename(e, year_since, year_to, result_items), index=False)
+                res.bib['citedby'] = 'NA'
+            res.bib['kw1'] = e
+            res.bib['kw2'] = m
+            res.bib['kw3'] = r
+            results.append(res.bib)
+        except StopIteration:
+            return 'Stopped, probably got blocked'
+    
+    return results
+
+
+def loop_through(energy_terms, ml_terms, rs_terms):
+
+    for e in energy_terms:
+
+        print('Scraping for energy term: {} '.format(e))
+
+        e_dir = os.path.join(os.path.curdir, save_root, e)
+        if not os.path.exists(e_dir):
+            os.makedirs(e_dir)
+
+        f = open(os.path.join(e_dir, 'completion.txt'), 'w+')
+
+        for m in tqdm(ml_terms):
+
+            for r in rs_terms:
+
+                f.write('Query {} + {} + {}:'.format(e, m, r))
+                kw = '+'.join([quote(e), quote(m), quote(r)])
+                kw = kw.replace(' ', '%20')
+
+                if year_since or year_to:
+                    url = make_url(kw, year_since, year_to)
+                    search_query = scholarly.search_pubs_custom_url(url)
+                else:
+                    search_query = scholarly.search_pubs_query(kw)
+                
+                results = actual_scrape(result_items, search_query, e, m, r)
+                
+                if isinstance(results, str):
+                    f.write(results+'\n')
+                    print('\n', results)
+                    return None
+                else:
+                    f.write('Finished\n')
+                    results_pd = pd.DataFrame.from_dict(results)
+                    results_pd.to_csv(os.path.join(e_dir, make_filename(e, year_since, year_to, result_items)), index=False)
+
+
+if __name__ == '__main__':
+    loop_through(energy_terms, ml_terms, rs_terms)
