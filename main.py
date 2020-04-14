@@ -14,8 +14,8 @@ completion_file = r'tasks/run04132020/Transmission line/completion.txt'
 
 energy_terms = [
     # 'Wind',
-    # 'Solar',
-    'Power system',
+    'Solar',
+    # 'Power system',
     # 'Energy',
     # 'Generator',
     # 'Coal',
@@ -34,19 +34,26 @@ energy_terms = [
 ml_terms = [
     'machine learning',
     'deep learning',
-    'support vector machine',
-    'random forest',
-    'regression tree',
-    'neural network'
+    # 'support vector machine',
+    # 'random forest',
+    # 'regression tree',
+    # 'neural network',
+    # 'regression',
+    # 'classification',
+    # 'detection'
 ]
 
 rs_terms = [
     'remote sensing',
     'satellite',
-    'aerial',
-    'UAV',
-    'unmanned aerial vehicle',
-    'hyperspectral'
+    # 'aerial',
+    # 'UAV',
+    # 'unmanned aerial vehicle',
+    # 'hyperspectral',
+    # 'imagery',
+    # 'sentinel',
+    # 'landsat',
+    # 'infrared'
 ]
 
 
