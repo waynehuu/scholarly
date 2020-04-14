@@ -10,6 +10,7 @@ year_since = 2015  # Format: YYYY
 year_to = None  # Format: year_to should be no less than year_since
 result_items = 20
 save_root = r'run04132020'
+completion_file = r'run04132020\\Solar\\completion.txt'
 
 energy_terms = [
     # 'Wind',
@@ -77,9 +78,22 @@ def make_url(kw, year_since, year_to):
     return url
 
 
-def make_filename(energy_term, year_since, year_to, n_items):
+def check_existence(completion_file, e, m, r):
+    comb = '{} + {} + {}'.format(e, m, r)
+    with open(completion_file, 'r') as read_obj:
+        for line in read_obj:
+            if comb in line:
+                return True
+    return False
 
-    fname = energy_term
+
+
+def make_filename(terms, year_since, year_to, n_items):
+
+    if isinstance(terms, list):
+        for term in terms:
+            term = term.replace(' ', '_')
+        fname = '_'.join(terms)
 
     if year_since:
         fname += '_since_{}'.format(year_since)
@@ -112,7 +126,7 @@ def actual_scrape(result_items, search_query, e, m, r):
     return results
 
 
-def loop_through(energy_terms, ml_terms, rs_terms):
+def main():
 
     for e in energy_terms:
 
@@ -128,7 +142,15 @@ def loop_through(energy_terms, ml_terms, rs_terms):
 
             for r in rs_terms:
 
-                f.write('Query {} + {} + {}:'.format(e, m, r))
+                ifExists = False
+                if completion_file:
+                    ifExists = check_existence(completion_file, e, m, r)
+                
+                if ifExists:
+                    continue
+                print(e, m, r)
+
+                f.write('Query {} + {} + {}: '.format(e, m, r))
                 kw = '+'.join([quote(e), quote(m), quote(r)])
                 kw = kw.replace(' ', '%20')
 
@@ -141,14 +163,13 @@ def loop_through(energy_terms, ml_terms, rs_terms):
                 results = actual_scrape(result_items, search_query, e, m, r)
                 
                 if isinstance(results, str):
-                    f.write(results+'\n')
-                    print('\n', results)
+                    print('Query {} + {} + {}: {}\n'.format(e, m, r, results))
                     return None
                 else:
-                    f.write('Finished\n')
+                    f.write('Query {} + {} + {}: Finished\n'.format(e, m, r))
                     results_pd = pd.DataFrame.from_dict(results)
                     results_pd.to_csv(os.path.join(e_dir, make_filename(e, year_since, year_to, result_items)), index=False)
 
 
 if __name__ == '__main__':
-    loop_through(energy_terms, ml_terms, rs_terms)
+    main()
