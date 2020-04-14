@@ -16,7 +16,6 @@ setup_notes.md
 .idea
 
 # Personal
-tasks/
 .vscode/
 *.csv
 *.xlsx
