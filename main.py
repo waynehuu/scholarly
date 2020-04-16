@@ -9,12 +9,12 @@ import os
 year_since = 2015  # Format: YYYY
 year_to = None  # Format: year_to should be no less than year_since
 result_items = 20
-save_root = r'run04132020'
-completion_file = r'run04132020\\Solar\\completion.txt'
+save_root = r'tasks/run04132020'
+completion_file = r'tasks/run04132020/Transmission line/completion.txt'
 
 energy_terms = [
     # 'Wind',
-    'Solar',
+    # 'Solar',
     # 'Power system',
     # 'Energy',
     # 'Generator',
@@ -24,7 +24,7 @@ energy_terms = [
     # 'Geothermal',
     # 'Hydropower',
     # 'Power line',
-    # 'Transmission line',
+    'Transmission line',
     # 'Electricity line',
     # 'Energy infrastructure',
     # 'Electric infrastructure',
