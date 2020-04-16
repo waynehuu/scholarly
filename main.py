@@ -94,6 +94,8 @@ def make_filename(terms, year_since, year_to, n_items):
         for term in terms:
             term = term.replace(' ', '_')
         fname = '_'.join(terms)
+    else:
+        fname = terms
 
     if year_since:
         fname += '_since_{}'.format(year_since)
