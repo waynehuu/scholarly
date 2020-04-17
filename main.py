@@ -9,8 +9,8 @@ import os
 year_since = 2015  # Format: YYYY
 year_to = None  # Format: year_to should be no less than year_since
 result_items = 20
-save_root = r'tasks/run04132020'
-completion_file = r'tasks/run04132020/Transmission line/completion.txt'
+save_root = os.path.join(os.getcwd(), 'tasks', 'run04132020')
+resume = True
 
 energy_terms = [
     # 'Wind',
@@ -24,7 +24,7 @@ energy_terms = [
     # 'Geothermal',
     # 'Hydropower',
     # 'Power line',
-    'Transmission line',
+    # 'Transmission line',
     # 'Electricity line',
     # 'Energy infrastructure',
     # 'Electric infrastructure',
@@ -138,15 +138,14 @@ def main():
         if not os.path.exists(e_dir):
             os.makedirs(e_dir)
 
-        f = open(os.path.join(e_dir, 'completion.txt'), 'w+')
+        completion_file_path = os.path.join(e_dir, 'completion.txt')
+        f = open(completion_file_path, 'a+')
 
         for m in tqdm(ml_terms):
 
             for r in rs_terms:
 
-                ifExists = False
-                if completion_file:
-                    ifExists = check_existence(completion_file, e, m, r)
+                ifExists = check_existence(completion_file_path, e, m, r) if resume else False
                 
                 if ifExists:
                     continue
