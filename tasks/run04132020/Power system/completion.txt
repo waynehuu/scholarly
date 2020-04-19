@@ -41,3 +41,47 @@ Query Power system + random forest + infrared: Finished
 Query Power system + regression tree + remote sensing: Finished
 Query Power system + regression tree + satellite: Finished
 Query Power system + regression tree + aerial: Finished
+Query Power system + regression tree + UAV: Finished
+Query Power system + regression tree + unmanned aerial vehicle: Finished
+Query Power system + regression tree + hyperspectral: Finished
+Query Power system + regression tree + imagery: Finished
+Query Power system + regression tree + sentinel: Finished
+Query Power system + regression tree + landsat: Finished
+Query Power system + regression tree + infrared: Finished
+Query Power system + neural network + remote sensing: Finished
+Query Power system + neural network + satellite: Finished
+Query Power system + neural network + aerial: Finished
+Query Power system + neural network + UAV: Finished
+Query Power system + neural network + unmanned aerial vehicle: Finished
+Query Power system + neural network + hyperspectral: Finished
+Query Power system + neural network + imagery: Finished
+Query Power system + neural network + sentinel: Finished
+Query Power system + neural network + landsat: Finished
+Query Power system + neural network + infrared: Finished
+Query Power system + regression + remote sensing: Finished
+Query Power system + regression + satellite: Finished
+Query Power system + regression + aerial: Finished
+Query Power system + regression + UAV: Finished
+Query Power system + regression + unmanned aerial vehicle: Finished
+Query Power system + regression + hyperspectral: Finished
+Query Power system + regression + imagery: Finished
+Query Power system + regression + sentinel: Finished
+Query Power system + regression + landsat: Finished
+Query Power system + regression + infrared: Finished
+Query Power system + classification + remote sensing: Finished
+Query Power system + classification + satellite: Finished
+Query Power system + classification + aerial: Finished
+Query Power system + classification + UAV: Finished
+Query Power system + classification + unmanned aerial vehicle: Finished
+Query Power system + classification + hyperspectral: Finished
+Query Power system + classification + imagery: Finished
+Query Power system + classification + sentinel: Finished
+Query Power system + classification + landsat: Finished
+Query Power system + classification + infrared: Finished
+Query Power system + detection + remote sensing: Finished
+Query Power system + detection + satellite: Finished
+Query Power system + detection + aerial: Finished
+Query Power system + detection + UAV: Finished
+Query Power system + detection + unmanned aerial vehicle: Finished
+Query Power system + detection + hyperspectral: Finished
+Query Power system + detection + imagery: Finished

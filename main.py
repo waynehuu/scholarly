@@ -123,7 +123,10 @@ def actual_scrape(result_items, search_query, e, m, r):
             res.bib['kw3'] = r
             results.append(res.bib)
         except StopIteration:
-            return 'Stopped, probably got blocked'
+            if len(results) == 0:
+                return 'Stopped, probably got blocked'
+            else:
+                return results
     
     return results
 
@@ -164,7 +167,8 @@ def main():
                 results = actual_scrape(result_items, search_query, e, m, r)
                 
                 if isinstance(results, str):
-                    print('Query {} + {} + {}: {}\n'.format(e, m, r, results))
+                    print('\nQuery {} + {} + {}: {}\n'.format(e, m, r, results))
+                    print('\n Query url: https://scholar.google.com{}'.format(url))
                     return None
                 else:
                     f.write('Query {} + {} + {}: Finished\n'.format(e, m, r))
