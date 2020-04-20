@@ -36,26 +36,26 @@ energy_terms = [
 ml_terms = [
     'machine learning',
     'deep learning',
-    # 'support vector machine',
-    # 'random forest',
-    # 'regression tree',
-    # 'neural network',
-    # 'regression',
-    # 'classification',
-    # 'detection'
+    'support vector machine',
+    'random forest',
+    'regression tree',
+    'neural network',
+    'regression',
+    'classification',
+    'detection'
 ]
 
 rs_terms = [
     'remote sensing',
     'satellite',
-    # 'aerial',
-    # 'UAV',
-    # 'unmanned aerial vehicle',
-    # 'hyperspectral',
-    # 'imagery',
-    # 'sentinel',
-    # 'landsat',
-    # 'infrared'
+    'aerial',
+    'UAV',
+    'unmanned aerial vehicle',
+    'hyperspectral',
+    'imagery',
+    'sentinel',
+    'landsat',
+    'infrared'
 ]
 
 
@@ -84,7 +84,7 @@ def check_existence(kw_checklist, file_checklist, e, m, r, save_name):
     comb = '{} + {} + {}'.format(e, m, r)
     f_comp = open(kw_checklist, 'r')
     f_file = open(file_checklist, 'r')
-    
+
     for line in f_comp:
         if comb in line:
             kwExists = True
@@ -98,12 +98,11 @@ def check_existence(kw_checklist, file_checklist, e, m, r, save_name):
             break
         else:
             fileExists = False
-    
+
     if kwExists and fileExists:
         return True
 
     return False
-
 
 
 def make_filename(terms, year_since, year_to, n_items):
@@ -120,7 +119,7 @@ def make_filename(terms, year_since, year_to, n_items):
 
     if year_to:
         fname += '_to_{}'.format(year_to)
-    
+
     fname += '_start={}'.format(_START_FROM)
 
     return '{}_first_{}.csv'.format(fname, n_items)
@@ -147,7 +146,7 @@ def actual_scrape(result_items, search_query, e, m, r):
                 return 'Stopped, probably got blocked'
             else:
                 return results
-    
+
     return results
 
 
@@ -155,7 +154,8 @@ def main():
 
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('--start', help='start=? in api query', default=0, type=int)
+    parser.add_argument(
+        '--start', help='start=? in api query', default=0, type=int)
     args = parser.parse_args()
     _START_FROM = args.start
 
@@ -169,7 +169,7 @@ def main():
 
         completion_file_path = os.path.join(e_dir, 'completion.txt')
         f_comp = open(completion_file_path, 'a+')
-        
+
         file_list_path = os.path.join(e_dir, 'finished.txt')
         f_file = open(file_list_path, 'a+')
 
@@ -179,15 +179,13 @@ def main():
 
                 save_name = make_filename(
                     [m, r], _YEAR_SINCE, _YEAR_TO, _RESULT_ITEMS)
-                    
+
                 ifExists = check_existence(
                     completion_file_path, file_list_path, e, m, r, save_name) if _RESUME else False
-                
+
                 if ifExists:
                     continue
-                print(e, m, r)
 
-                f.write('Query {} + {} + {}: '.format(e, m, r))
                 kw = '+'.join([quote(e), quote(m), quote(r)])
                 kw = kw.replace(' ', '%20')
 
@@ -196,21 +194,23 @@ def main():
                     search_query = scholarly.search_pubs_custom_url(url)
                 else:
                     search_query = scholarly.search_pubs_query(kw)
-                
+
                 results = actual_scrape(_RESULT_ITEMS, search_query, e, m, r)
-                
+
                 if isinstance(results, str):
                     print('\nQuery {} + {} + {}: {}'.format(e, m, r, results))
                     print('Query url: https://scholar.google.com{}'.format(url))
                     return None
                 else:
-                    f_comp.write('Query {} + {} + {}: Finished\n'.format(e, m, r))
+                    f_comp.write(
+                        'Query {} + {} + {}: Finished\n'.format(e, m, r))
 
                     f_file.write(save_name)
                     f_file.write('\n')
 
                     results_pd = pd.DataFrame.from_dict(results)
-                    results_pd.to_csv(os.path.join(e_dir, make_filename(e, year_since, year_to, result_items)), index=False)
+                    results_pd.to_csv(os.path.join(
+                        e_dir, save_name), index=False)
 
 
 if __name__ == '__main__':
