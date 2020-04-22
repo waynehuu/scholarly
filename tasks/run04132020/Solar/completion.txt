@@ -1,0 +1,91 @@
+Query Solar + machine learning + remote sensing:Finished
+Query Solar + machine learning + satellite:Finished
+Query Solar + machine learning + aerial:Finished
+Query Solar + machine learning + UAV:Finished
+Query Solar + machine learning + unmanned aerial vehicle:Finished
+Query Solar + machine learning + hyperspectral:Finished
+Query Solar + machine learning + imagery:Finished
+Query Solar + machine learning + sentinel:Finished
+Query Solar + machine learning + landsat:Finished
+Query Solar + machine learning + infrared:Finished
+Query Solar + deep learning + remote sensing:Finished
+Query Solar + deep learning + satellite:Finished
+Query Solar + deep learning + aerial:Finished
+Query Solar + deep learning + UAV:Finished
+Query Solar + deep learning + unmanned aerial vehicle:Finished
+Query Solar + deep learning + hyperspectral:Finished
+Query Solar + deep learning + imagery:Finished
+Query Solar + deep learning + sentinel:Finished
+Query Solar + deep learning + landsat:Finished
+Query Solar + deep learning + infrared:Finished
+Query Solar + support vector machine + remote sensing:Finished
+Query Solar + support vector machine + satellite:Finished
+Query Solar + support vector machine + aerial:Finished
+Query Solar + support vector machine + UAV:Finished
+Query Solar + support vector machine + unmanned aerial vehicle:Finished
+Query Solar + support vector machine + hyperspectral:Finished
+Query Solar + support vector machine + imagery:Finished
+Query Solar + support vector machine + sentinel:Finished
+Query Solar + support vector machine + landsat:Finished
+Query Solar + support vector machine + infrared:Finished
+Query Solar + random forest + remote sensing:Finished
+Query Solar + random forest + satellite:Finished
+Query Solar + random forest + aerial:Finished
+Query Solar + random forest + UAV:Finished
+Query Solar + random forest + unmanned aerial vehicle:Stopped, probably got blocked
+Query Solar + machine learning + remote sensing:Stopped, probably got blocked
+Query Solar + machine learning + remote sensing:Stopped, probably got blocked
+Query Solar + random forest + hyperspectral: Finished
+Query Solar + random forest + imagery: Finished
+Query Solar + random forest + sentinel: Query Solar + random forest + landsat: Finished
+Query Solar + random forest + infrared: Finished
+Query Solar + regression tree + remote sensing: Finished
+Query Solar + regression tree + satellite: Finished
+Query Solar + regression tree + aerial: Finished
+Query Solar + regression tree + UAV: Finished
+Query Solar + regression tree + unmanned aerial vehicle: Finished
+Query Solar + regression tree + hyperspectral: Finished
+Query Solar + regression tree + imagery: Finished
+Query Solar + regression tree + sentinel: Finished
+Query Solar + regression tree + landsat: Finished
+Query Solar + regression tree + infrared: Finished
+Query Solar + neural network + remote sensing: Finished
+Query Solar + neural network + satellite: Finished
+Query Solar + neural network + aerial: Finished
+Query Solar + neural network + UAV: Finished
+Query Solar + neural network + unmanned aerial vehicle: Finished
+Query Solar + neural network + hyperspectral: Finished
+Query Solar + neural network + imagery: Finished
+Query Solar + neural network + sentinel: Finished
+Query Solar + neural network + landsat: Finished
+Query Solar + neural network + infrared: Finished
+Query Solar + regression + remote sensing: Finished
+Query Solar + regression + satellite: Finished
+Query Solar + regression + aerial: Finished
+Query Solar + regression + UAV: Finished
+Query Solar + regression + unmanned aerial vehicle: Finished
+Query Solar + regression + hyperspectral: Finished
+Query Solar + regression + imagery: Finished
+Query Solar + regression + sentinel: Finished
+Query Solar + regression + landsat: Finished
+Query Solar + regression + infrared: Finished
+Query Solar + classification + remote sensing: Finished
+Query Solar + classification + satellite: Finished
+Query Solar + classification + aerial: Finished
+Query Solar + classification + UAV: Finished
+Query Solar + classification + unmanned aerial vehicle: Finished
+Query Solar + classification + hyperspectral: Finished
+Query Solar + classification + imagery: Finished
+Query Solar + classification + sentinel: Finished
+Query Solar + classification + landsat: Finished
+Query Solar + classification + infrared: Finished
+Query Solar + detection + remote sensing: Finished
+Query Solar + detection + satellite: Finished
+Query Solar + detection + aerial: Finished
+Query Solar + detection + UAV: Finished
+Query Solar + detection + unmanned aerial vehicle: Finished
+Query Solar + detection + hyperspectral: Stopped, probably got blocked
+Query Solar + detection + imagery: Finished
+Query Solar + detection + sentinel: Finished
+Query Solar + detection + landsat: Finished
+Query Solar + detection + infrared: Finished

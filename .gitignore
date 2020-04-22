@@ -14,3 +14,9 @@ setup_notes.md
 .ipynb_checkpoints
 *.ipynb
 .idea
+
+# Personal
+.vscode/
+*.csv
+*.xlsx
+*.xls
