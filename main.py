@@ -4,7 +4,6 @@ from tqdm import tqdm
 import time
 import random
 import os
-import argparse
 
 
 _YEAR_SINCE = 2015  # Format: YYYY
@@ -142,13 +141,6 @@ def actual_scrape(result_items, search_query, e, m, r):
 
 
 def main():
-
-    parser = argparse.ArgumentParser()
-
-    parser.add_argument(
-        '--start', help='start=? in api query', default=0, type=int)
-    args = parser.parse_args()
-    _START_FROM = args.start
 
     for e in energy_terms:
 
