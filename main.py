@@ -12,15 +12,15 @@ _YEAR_TO = None  # Format: year_to should be no less than year_since
 _RESULT_ITEMS = 10
 _SAVE_ROOT = os.path.join(os.getcwd(), 'tasks', 'run04132020')
 _RESUME = True
-_START_FROM = 0
+_START_FROM = 10
 
 energy_terms = [
     # 'Wind',
-    # 'Solar',
-    # 'Power system',
+    # 'Solar', # 5 left
+    # 'Power system', # Done
     # 'Energy',
-    'Generator',
-    # 'Coal',
+    # 'Generator', # Done
+    'Coal',
     # 'Oil',
     # 'Natural Gas',
     # 'Geothermal',
@@ -30,7 +30,7 @@ energy_terms = [
     # 'Electricity line',
     # 'Energy infrastructure',
     # 'Electric infrastructure',
-    # 'Renewable'
+    # 'Renewable' # Done
 ]
 
 ml_terms = [
@@ -85,22 +85,13 @@ def check_existence(kw_checklist, file_checklist, e, m, r, save_name):
     f_comp = open(kw_checklist, 'r')
     f_file = open(file_checklist, 'r')
 
-    for line in f_comp:
+    for line in f_comp.readlines():
         if comb in line:
-            kwExists = True
-            break
-        else:
-            kwExists = False
+            return True
 
-    for line in f_file:
+    for line in f_file.readlines():
         if save_name in line:
-            fileExists = True
-            break
-        else:
-            fileExists = False
-
-    if kwExists and fileExists:
-        return True
+            return True
 
     return False
 
@@ -202,8 +193,8 @@ def main():
                     print('Query url: https://scholar.google.com{}'.format(url))
                     return None
                 else:
-                    f_comp.write(
-                        'Query {} + {} + {}: Finished\n'.format(e, m, r))
+                    # f_comp.write(
+                    #     'Query {} + {} + {}: Finished\n'.format(e, m, r))
 
                     f_file.write(save_name)
                     f_file.write('\n')
@@ -212,6 +203,8 @@ def main():
                     results_pd.to_csv(os.path.join(
                         e_dir, save_name), index=False)
 
+        f_comp.close()
+        f_file.close()
 
 if __name__ == '__main__':
     main()
