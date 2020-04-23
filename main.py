@@ -11,16 +11,16 @@ _YEAR_TO = None  # Format: year_to should be no less than year_since
 _RESULT_ITEMS = 10
 _SAVE_ROOT = os.path.join(os.getcwd(), 'tasks')
 _RESUME = True
-_START_FROM = 10
+_START_FROM = 0
 
 energy_terms = [
-    # 'Wind',
+    # 'Wind', # Done
     # 'Solar', # 5 left
     # 'Power system', # Done
-    # 'Energy',
+    # 'Energy', # Done.
     # 'Generator', # Done
-    'Coal',
-    # 'Oil',
+    # 'Coal', # Done
+    'Oil',
     # 'Natural Gas',
     # 'Geothermal',
     # 'Hydropower',
