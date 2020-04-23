@@ -14,12 +14,13 @@ import re
 import requests
 import sys
 import time
+from itertools import cycle
 
 _GOOGLEID = hashlib.md5(str(random.random()).encode('utf-8')).hexdigest()[:16]
 _COOKIES = {'GSP': 'ID={0}:CF=4'.format(_GOOGLEID)}
 _HEADERS = {
     'accept-language': 'en-US,en',
-    'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/41.0.2272.76 Chrome/41.0.2272.76 Safari/537.36',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36',
     'accept': 'text/html,application/xhtml+xml,application/xml'
     }
 _HOST = 'https://scholar.google.com'
@@ -38,15 +39,32 @@ _EMAILAUTHORRE = r'Verified email at '
 
 _SESSION = requests.Session()
 _PAGESIZE = 100
+_USE_PROXY = True
+_RETRY = 10
+
+PROXY_URL = 'https://free-proxy-list.net/'
 
 
-def use_proxy(http='socks5://127.0.0.1:9050', https='socks5://127.0.0.1:9050'):
+def get_proxies():
+    response = requests.get(PROXY_URL)
+    soup = BeautifulSoup(response.text, 'lxml')
+    table = soup.find('table', id='proxylisttable')
+    list_tr = table.find_all('tr')
+    list_td = [elem.find_all('td') for elem in list_tr]
+    list_td = list(filter(None, list_td))
+    list_td = [elem for elem in list_td if elem[6].text == 'yes'] # select https only
+    list_ip = [elem[0].text for elem in list_td]
+    list_ports = [elem[1].text for elem in list_td]
+    list_proxies = [':'.join(elem) for elem in list(zip(list_ip, list_ports))]
+    return list_proxies
+
+
+def use_proxy(proxy):
     """ Routes scholarly through a proxy (e.g. tor).
         Requires pysocks
         Proxy must be running."""
     _SESSION.proxies ={
-            'http': http,
-            'https': https
+        'http': proxy
     }
 
 
@@ -77,21 +95,37 @@ def _handle_captcha(url):
 def _get_page(pagerequest):
     """Return the data for a page on scholar.google.com"""
     # Note that we include a sleep to avoid overloading the scholar server
-    time.sleep(5+random.uniform(0, 5))
-    resp = _SESSION.get(pagerequest, headers=_HEADERS, cookies=_COOKIES)
-    if resp.status_code == 200:
-        return resp.text
-    if resp.status_code == 503:
-        # Inelegant way of dealing with the G captcha
-        raise Exception('Error: {0} {1}'.format(resp.status_code, resp.reason))
-        # TODO: Need to fix captcha handling
-        # dest_url = requests.utils.quote(_SCHOLARHOST+pagerequest)
-        # soup = BeautifulSoup(resp.text, 'html.parser')
-        # captcha_url = soup.find('img').get('src')
-        # resp = _handle_captcha(captcha_url)
-        # return _get_page(re.findall(r'https:\/\/(?:.*?)(\/.*)', resp)[0])
+    timeout = 5 + random.uniform(5, 10)
+
+    if _USE_PROXY:
+        proxies = get_proxies()
+        proxy_pool = cycle(proxies)
+
+        count = 0
+        while count < _RETRY:
+            print(count)
+            proxy = next(proxy_pool)
+            use_proxy(proxy)
+            resp = _SESSION.get(
+                pagerequest, headers=_HEADERS, cookies=_COOKIES, timeout=timeout)
+            if resp.status_code == 200:
+                return resp.text
+            count += 1
     else:
-        raise Exception('Error: {0} {1}'.format(resp.status_code, resp.reason))
+        resp = _SESSION.get(pagerequest, headers=_HEADERS, cookies=_COOKIES, timeout=timeout)
+        if resp.status_code == 200:
+            return resp.text
+        if resp.status_code == 503:
+            # Inelegant way of dealing with the G captcha
+            raise Exception('Error: {0} {1}'.format(resp.status_code, resp.reason))
+            # TODO: Need to fix captcha handling
+            # dest_url = requests.utils.quote(_SCHOLARHOST+pagerequest)
+            # soup = BeautifulSoup(resp.text, 'html.parser')
+            # captcha_url = soup.find('img').get('src')
+            # resp = _handle_captcha(captcha_url)
+            # return _get_page(re.findall(r'https:\/\/(?:.*?)(\/.*)', resp)[0])
+        else:
+            raise Exception('Error: {0} {1}'.format(resp.status_code, resp.reason))
 
 
 def _get_soup(pagerequest):

@@ -20,9 +20,9 @@ energy_terms = [
     # 'Energy', # Done.
     # 'Generator', # Done
     # 'Coal', # Done
-    'Oil',
-    # 'Natural Gas',
-    # 'Geothermal',
+    # 'Oil', # Done
+    # 'Natural Gas', # Done
+    'Geothermal',
     # 'Hydropower',
     # 'Power line',
     # 'Transmission line',
