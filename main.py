@@ -10,7 +10,7 @@ import argparse
 _YEAR_SINCE = 2015  # Format: YYYY
 _YEAR_TO = None  # Format: year_to should be no less than year_since
 _RESULT_ITEMS = 10
-_SAVE_ROOT = os.path.join(os.getcwd(), 'tasks', 'run04132020')
+_SAVE_ROOT = os.path.join(os.getcwd(), 'tasks')
 _RESUME = True
 _START_FROM = 10
 
