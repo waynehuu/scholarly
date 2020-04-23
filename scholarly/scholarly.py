@@ -103,7 +103,6 @@ def _get_page(pagerequest):
 
         count = 0
         while count < _RETRY:
-            print(count)
             proxy = next(proxy_pool)
             use_proxy(proxy)
             resp = _SESSION.get(
