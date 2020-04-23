@@ -1,0 +1,47 @@
+Query Geothermal + machine learning + remote sensing: Finished
+Query Geothermal + machine learning + satellite: Finished
+Query Geothermal + machine learning + aerial: Finished
+Query Geothermal + machine learning + UAV: Finished
+Query Geothermal + machine learning + unmanned aerial vehicle: Finished
+Query Geothermal + machine learning + hyperspectral: Finished
+Query Geothermal + machine learning + imagery: Finished
+Query Geothermal + machine learning + sentinel: Finished
+Query Geothermal + machine learning + landsat: Finished
+Query Geothermal + machine learning + infrared: Finished
+Query Geothermal + deep learning + remote sensing: Finished
+Query Geothermal + deep learning + satellite: Finished
+Query Geothermal + deep learning + aerial: Finished
+Query Geothermal + deep learning + UAV: Finished
+Query Geothermal + deep learning + unmanned aerial vehicle: Finished
+Query Geothermal + deep learning + hyperspectral: Finished
+Query Geothermal + deep learning + imagery: Finished
+Query Geothermal + deep learning + sentinel: Finished
+Query Geothermal + deep learning + landsat: Finished
+Query Geothermal + deep learning + infrared: Finished
+Query Geothermal + support vector machine + remote sensing: Finished
+Query Geothermal + support vector machine + satellite: Finished
+Query Geothermal + support vector machine + aerial: Finished
+Query Geothermal + support vector machine + UAV: Finished
+Query Geothermal + support vector machine + unmanned aerial vehicle: Finished
+Query Geothermal + support vector machine + hyperspectral: Finished
+Query Geothermal + support vector machine + imagery: Finished
+Query Geothermal + support vector machine + sentinel: Finished
+Query Geothermal + support vector machine + landsat: Finished
+Query Geothermal + support vector machine + infrared: Finished
+Query Geothermal + random forest + remote sensing: Finished
+Query Geothermal + random forest + satellite: Finished
+Query Geothermal + random forest + aerial: Finished
+Query Geothermal + random forest + UAV: Finished
+Query Geothermal + random forest + unmanned aerial vehicle: Finished
+Query Geothermal + random forest + hyperspectral: Finished
+Query Geothermal + random forest + imagery: Finished
+Query Geothermal + random forest + sentinel: Finished
+Query Geothermal + random forest + landsat: Finished
+Query Geothermal + random forest + infrared: Finished
+Query Geothermal + regression tree + remote sensing: Finished
+Query Geothermal + regression tree + satellite: Finished
+Query Geothermal + regression tree + aerial: Finished
+Query Geothermal + regression tree + UAV: Finished
+Query Geothermal + regression tree + unmanned aerial vehicle: Finished
+Query Geothermal + regression tree + hyperspectral: Finished
+Query Geothermal + regression tree + imagery: Finished

@@ -1,0 +1,48 @@
+Query Hydropower + machine learning + remote sensing: Finished
+Query Hydropower + machine learning + satellite: Finished
+Query Hydropower + machine learning + aerial: Finished
+Query Hydropower + machine learning + UAV: Finished
+Query Hydropower + machine learning + unmanned aerial vehicle: Finished
+Query Hydropower + machine learning + hyperspectral: Finished
+Query Hydropower + machine learning + imagery: Finished
+Query Hydropower + machine learning + sentinel: Finished
+Query Hydropower + machine learning + landsat: Finished
+Query Hydropower + machine learning + infrared: Finished
+Query Hydropower + deep learning + remote sensing: Finished
+Query Hydropower + deep learning + satellite: Finished
+Query Hydropower + deep learning + aerial: Finished
+Query Hydropower + deep learning + UAV: Finished
+Query Hydropower + deep learning + unmanned aerial vehicle: Finished
+Query Hydropower + deep learning + hyperspectral: Finished
+Query Hydropower + deep learning + imagery: Finished
+Query Hydropower + deep learning + sentinel: Finished
+Query Hydropower + deep learning + landsat: Finished
+Query Hydropower + deep learning + infrared: Finished
+Query Hydropower + support vector machine + remote sensing: Finished
+Query Hydropower + support vector machine + satellite: Finished
+Query Hydropower + support vector machine + aerial: Finished
+Query Hydropower + support vector machine + UAV: Finished
+Query Hydropower + support vector machine + unmanned aerial vehicle: Finished
+Query Hydropower + support vector machine + hyperspectral: Finished
+Query Hydropower + support vector machine + imagery: Finished
+Query Hydropower + support vector machine + sentinel: Finished
+Query Hydropower + support vector machine + landsat: Finished
+Query Hydropower + support vector machine + infrared: Finished
+Query Hydropower + random forest + remote sensing: Finished
+Query Hydropower + random forest + satellite: Finished
+Query Hydropower + random forest + aerial: Finished
+Query Hydropower + random forest + UAV: Finished
+Query Hydropower + random forest + unmanned aerial vehicle: Finished
+Query Hydropower + random forest + hyperspectral: Finished
+Query Hydropower + random forest + imagery: Finished
+Query Hydropower + random forest + sentinel: Finished
+Query Hydropower + random forest + landsat: Finished
+Query Hydropower + random forest + infrared: Finished
+Query Hydropower + regression tree + remote sensing: Finished
+Query Hydropower + regression tree + satellite: Finished
+Query Hydropower + regression tree + aerial: Finished
+Query Hydropower + regression tree + UAV: Finished
+Query Hydropower + regression tree + unmanned aerial vehicle: Finished
+Query Hydropower + regression tree + hyperspectral: Finished
+Query Hydropower + regression tree + imagery: Finished
+Query Hydropower + regression tree + sentinel: Finished

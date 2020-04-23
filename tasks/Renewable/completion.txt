@@ -1,0 +1,90 @@
+Query Renewable + machine learning + remote sensing: Finished
+Query Renewable + machine learning + satellite: Finished
+Query Renewable + machine learning + aerial: Finished
+Query Renewable + machine learning + UAV: Finished
+Query Renewable + machine learning + unmanned aerial vehicle: Finished
+Query Renewable + machine learning + hyperspectral: Finished
+Query Renewable + machine learning + imagery: Finished
+Query Renewable + machine learning + sentinel: Finished
+Query Renewable + machine learning + landsat: Finished
+Query Renewable + machine learning + infrared: Finished
+Query Renewable + deep learning + remote sensing: Finished
+Query Renewable + deep learning + satellite: Finished
+Query Renewable + deep learning + aerial: Finished
+Query Renewable + deep learning + UAV: Finished
+Query Renewable + deep learning + unmanned aerial vehicle: Finished
+Query Renewable + deep learning + hyperspectral: Finished
+Query Renewable + deep learning + imagery: Finished
+Query Renewable + deep learning + sentinel: Finished
+Query Renewable + deep learning + landsat: Finished
+Query Renewable + deep learning + infrared: Finished
+Query Renewable + support vector machine + remote sensing: Finished
+Query Renewable + support vector machine + satellite: Finished
+Query Renewable + support vector machine + aerial: Finished
+Query Renewable + support vector machine + UAV: Finished
+Query Renewable + support vector machine + unmanned aerial vehicle: Finished
+Query Renewable + support vector machine + hyperspectral: Finished
+Query Renewable + support vector machine + imagery: Finished
+Query Renewable + support vector machine + sentinel: Finished
+Query Renewable + support vector machine + landsat: Finished
+Query Renewable + support vector machine + infrared: Finished
+Query Renewable + random forest + remote sensing: Finished
+Query Renewable + random forest + satellite: Finished
+Query Renewable + random forest + aerial: Finished
+Query Renewable + random forest + UAV: Finished
+Query Renewable + random forest + unmanned aerial vehicle: Finished
+Query Renewable + random forest + hyperspectral: Finished
+Query Renewable + random forest + imagery: Finished
+Query Renewable + random forest + sentinel: Finished
+Query Renewable + random forest + landsat: Finished
+Query Renewable + random forest + infrared: Finished
+Query Renewable + regression tree + remote sensing: Finished
+Query Renewable + regression tree + satellite: Finished
+Query Renewable + regression tree + aerial: Finished
+Query Renewable + regression tree + UAV: Finished
+Query Renewable + regression tree + unmanned aerial vehicle: Finished
+Query Renewable + regression tree + hyperspectral: Finished
+Query Renewable + regression tree + imagery: Finished
+Query Renewable + regression tree + sentinel: Finished
+Query Renewable + regression tree + landsat: Finished
+Query Renewable + regression tree + infrared: Finished
+Query Renewable + neural network + remote sensing: Finished
+Query Renewable + neural network + satellite: Finished
+Query Renewable + neural network + aerial: Finished
+Query Renewable + neural network + UAV: Finished
+Query Renewable + neural network + unmanned aerial vehicle: Finished
+Query Renewable + neural network + hyperspectral: Finished
+Query Renewable + neural network + imagery: Finished
+Query Renewable + neural network + sentinel: Finished
+Query Renewable + neural network + landsat: Finished
+Query Renewable + neural network + infrared: Finished
+Query Renewable + regression + remote sensing: Finished
+Query Renewable + regression + satellite: Finished
+Query Renewable + regression + aerial: Finished
+Query Renewable + regression + UAV: Finished
+Query Renewable + regression + unmanned aerial vehicle: Finished
+Query Renewable + regression + hyperspectral: Finished
+Query Renewable + regression + imagery: Finished
+Query Renewable + regression + sentinel: Finished
+Query Renewable + regression + landsat: Finished
+Query Renewable + regression + infrared: Finished
+Query Renewable + classification + remote sensing: Finished
+Query Renewable + classification + satellite: Finished
+Query Renewable + classification + aerial: Finished
+Query Renewable + classification + UAV: Finished
+Query Renewable + classification + unmanned aerial vehicle: Finished
+Query Renewable + classification + hyperspectral: Finished
+Query Renewable + classification + imagery: Finished
+Query Renewable + classification + sentinel: Finished
+Query Renewable + classification + landsat: Finished
+Query Renewable + classification + infrared: Finished
+Query Renewable + detection + remote sensing: Finished
+Query Renewable + detection + satellite: Finished
+Query Renewable + detection + aerial: Finished
+Query Renewable + detection + UAV: Finished
+Query Renewable + detection + unmanned aerial vehicle: Finished
+Query Renewable + detection + hyperspectral: Finished
+Query Renewable + detection + imagery: Finished
+Query Renewable + detection + sentinel: Finished
+Query Renewable + detection + landsat: Finished
+Query Renewable + detection + infrared: Finished

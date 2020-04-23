@@ -1,0 +1,47 @@
+Query Natural Gas + machine learning + remote sensing: Finished
+Query Natural Gas + machine learning + satellite: Finished
+Query Natural Gas + machine learning + aerial: Finished
+Query Natural Gas + machine learning + UAV: Finished
+Query Natural Gas + machine learning + unmanned aerial vehicle: Finished
+Query Natural Gas + machine learning + hyperspectral: Finished
+Query Natural Gas + machine learning + imagery: Finished
+Query Natural Gas + machine learning + sentinel: Finished
+Query Natural Gas + machine learning + landsat: Finished
+Query Natural Gas + machine learning + infrared: Finished
+Query Natural Gas + deep learning + remote sensing: Finished
+Query Natural Gas + deep learning + satellite: Finished
+Query Natural Gas + deep learning + aerial: Finished
+Query Natural Gas + deep learning + UAV: Finished
+Query Natural Gas + deep learning + unmanned aerial vehicle: Finished
+Query Natural Gas + deep learning + hyperspectral: Finished
+Query Natural Gas + deep learning + imagery: Finished
+Query Natural Gas + deep learning + sentinel: Finished
+Query Natural Gas + deep learning + landsat: Finished
+Query Natural Gas + deep learning + infrared: Finished
+Query Natural Gas + support vector machine + remote sensing: Finished
+Query Natural Gas + support vector machine + satellite: Finished
+Query Natural Gas + support vector machine + aerial: Finished
+Query Natural Gas + support vector machine + UAV: Finished
+Query Natural Gas + support vector machine + unmanned aerial vehicle: Finished
+Query Natural Gas + support vector machine + hyperspectral: Finished
+Query Natural Gas + support vector machine + imagery: Finished
+Query Natural Gas + support vector machine + sentinel: Finished
+Query Natural Gas + support vector machine + landsat: Finished
+Query Natural Gas + support vector machine + infrared: Finished
+Query Natural Gas + random forest + remote sensing: Finished
+Query Natural Gas + random forest + satellite: Finished
+Query Natural Gas + random forest + aerial: Finished
+Query Natural Gas + random forest + UAV: Finished
+Query Natural Gas + random forest + unmanned aerial vehicle: Finished
+Query Natural Gas + random forest + hyperspectral: Finished
+Query Natural Gas + random forest + imagery: Finished
+Query Natural Gas + random forest + sentinel: Finished
+Query Natural Gas + random forest + landsat: Finished
+Query Natural Gas + random forest + infrared: Finished
+Query Natural Gas + regression tree + remote sensing: Finished
+Query Natural Gas + regression tree + satellite: Finished
+Query Natural Gas + regression tree + aerial: Finished
+Query Natural Gas + regression tree + UAV: Finished
+Query Natural Gas + regression tree + unmanned aerial vehicle: Finished
+Query Natural Gas + regression tree + hyperspectral: Finished
+Query Natural Gas + regression tree + imagery: Finished

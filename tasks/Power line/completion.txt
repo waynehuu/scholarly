@@ -1,0 +1,49 @@
+Query Power line + machine learning + remote sensing: Finished
+Query Power line + machine learning + satellite: Finished
+Query Power line + machine learning + aerial: Finished
+Query Power line + machine learning + UAV: Finished
+Query Power line + machine learning + unmanned aerial vehicle: Finished
+Query Power line + machine learning + hyperspectral: Finished
+Query Power line + machine learning + imagery: Finished
+Query Power line + machine learning + sentinel: Finished
+Query Power line + machine learning + landsat: Finished
+Query Power line + machine learning + infrared: Finished
+Query Power line + deep learning + remote sensing: Finished
+Query Power line + deep learning + satellite: Finished
+Query Power line + deep learning + aerial: Finished
+Query Power line + deep learning + UAV: Finished
+Query Power line + deep learning + unmanned aerial vehicle: Finished
+Query Power line + deep learning + hyperspectral: Finished
+Query Power line + deep learning + imagery: Finished
+Query Power line + deep learning + sentinel: Finished
+Query Power line + deep learning + landsat: Finished
+Query Power line + deep learning + infrared: Finished
+Query Power line + support vector machine + remote sensing: Finished
+Query Power line + support vector machine + satellite: Finished
+Query Power line + support vector machine + aerial: Finished
+Query Power line + support vector machine + UAV: Finished
+Query Power line + support vector machine + unmanned aerial vehicle: Finished
+Query Power line + support vector machine + hyperspectral: Finished
+Query Power line + support vector machine + imagery: Finished
+Query Power line + support vector machine + sentinel: Finished
+Query Power line + support vector machine + landsat: Finished
+Query Power line + support vector machine + infrared: Finished
+Query Power line + random forest + remote sensing: Finished
+Query Power line + random forest + satellite: Finished
+Query Power line + random forest + aerial: Finished
+Query Power line + random forest + UAV: Finished
+Query Power line + random forest + unmanned aerial vehicle: Finished
+Query Power line + random forest + hyperspectral: Finished
+Query Power line + random forest + imagery: Finished
+Query Power line + random forest + sentinel: Finished
+Query Power line + random forest + landsat: Finished
+Query Power line + random forest + infrared: Finished
+Query Power line + regression tree + remote sensing: Finished
+Query Power line + regression tree + satellite: Finished
+Query Power line + regression tree + aerial: Finished
+Query Power line + regression tree + UAV: Finished
+Query Power line + regression tree + unmanned aerial vehicle: Finished
+Query Power line + regression tree + hyperspectral: Finished
+Query Power line + regression tree + imagery: Finished
+Query Power line + regression tree + sentinel: Finished
+Query Power line + regression tree + landsat: Finished

@@ -1,0 +1,19 @@
+Query Transmission line + machine learning + remote sensing: Finished
+Query Transmission line + machine learning + satellite: Finished
+Query Transmission line + machine learning + remote sensing: Finished
+Query Transmission line + machine learning + remote sensing: Finished
+Query Transmission line + machine learning + aerial: Finished
+Query Transmission line + machine learning + UAV: Finished
+Query Transmission line + machine learning + unmanned aerial vehicle: Finished
+Query Transmission line + machine learning + hyperspectral: Finished
+Query Transmission line + machine learning + imagery: Finished
+Query Transmission line + machine learning + sentinel: Finished
+Query Transmission line + machine learning + landsat: Finished
+Query Transmission line + machine learning + infrared: Finished
+Query Transmission line + deep learning + remote sensing: Finished
+Query Transmission line + deep learning + satellite: Finished
+Query Transmission line + deep learning + aerial: Finished
+Query Transmission line + deep learning + UAV: Finished
+Query Transmission line + deep learning + unmanned aerial vehicle: Finished
+Query Transmission line + deep learning + hyperspectral: Finished
+Query Transmission line + deep learning + imagery: Finished

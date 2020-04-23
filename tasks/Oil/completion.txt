@@ -1,0 +1,42 @@
+Query Oil + machine learning + remote sensing: Finished
+Query Oil + machine learning + satellite: Finished
+Query Oil + machine learning + aerial: Finished
+Query Oil + machine learning + UAV: Finished
+Query Oil + machine learning + unmanned aerial vehicle: Finished
+Query Oil + machine learning + hyperspectral: Finished
+Query Oil + machine learning + imagery: Finished
+Query Oil + machine learning + sentinel: Finished
+Query Oil + machine learning + landsat: Finished
+Query Oil + machine learning + infrared: Finished
+Query Oil + deep learning + remote sensing: Finished
+Query Oil + deep learning + satellite: Finished
+Query Oil + deep learning + aerial: Finished
+Query Oil + deep learning + UAV: Finished
+Query Oil + deep learning + unmanned aerial vehicle: Finished
+Query Oil + deep learning + hyperspectral: Finished
+Query Oil + deep learning + imagery: Finished
+Query Oil + deep learning + sentinel: Finished
+Query Oil + deep learning + landsat: Finished
+Query Oil + deep learning + infrared: Finished
+Query Oil + support vector machine + remote sensing: Finished
+Query Oil + support vector machine + satellite: Finished
+Query Oil + support vector machine + aerial: Finished
+Query Oil + support vector machine + UAV: Finished
+Query Oil + support vector machine + unmanned aerial vehicle: Finished
+Query Oil + support vector machine + hyperspectral: Finished
+Query Oil + support vector machine + imagery: Finished
+Query Oil + support vector machine + sentinel: Finished
+Query Oil + support vector machine + landsat: Finished
+Query Oil + support vector machine + infrared: Finished
+Query Oil + random forest + remote sensing: Finished
+Query Oil + random forest + satellite: Finished
+Query Oil + random forest + aerial: Finished
+Query Oil + random forest + UAV: Finished
+Query Oil + random forest + unmanned aerial vehicle: Finished
+Query Oil + random forest + hyperspectral: Finished
+Query Oil + random forest + imagery: Finished
+Query Oil + random forest + sentinel: Finished
+Query Oil + random forest + landsat: Finished
+Query Oil + random forest + infrared: Finished
+Query Oil + regression tree + remote sensing: Finished
+Query Oil + regression tree + satellite: Finished
