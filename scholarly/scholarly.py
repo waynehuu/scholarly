@@ -14,7 +14,6 @@ import re
 import requests
 import sys
 import time
-from itertools import cycle
 
 _GOOGLEID = hashlib.md5(str(random.random()).encode('utf-8')).hexdigest()[:16]
 _COOKIES = {'GSP': 'ID={0}:CF=4'.format(_GOOGLEID)}
@@ -22,7 +21,7 @@ _HEADERS = {
     'accept-language': 'en-US,en',
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36',
     'accept': 'text/html,application/xhtml+xml,application/xml'
-    }
+}
 _HOST = 'https://scholar.google.com'
 _AUTHSEARCH = '/citations?view_op=search_authors&hl=en&mauthors={0}'
 _CITATIONAUTH = '/citations?user={0}&hl=en'
@@ -39,10 +38,51 @@ _EMAILAUTHORRE = r'Verified email at '
 
 _SESSION = requests.Session()
 _PAGESIZE = 100
-_USE_PROXY = True
-_RETRY = 10
+_USE_PROXY = False
 
 PROXY_URL = 'https://free-proxy-list.net/'
+
+# _UA = [
+#     'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/525.19 (KHTML, like Gecko) Chrome/1.0.154.53 Safari/525.19',
+#     'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/525.19 (KHTML, like Gecko) Chrome/1.0.154.36 Safari/525.19',
+#     'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.10 (KHTML, like Gecko) Chrome/7.0.540.0 Safari/534.10',
+#     'Mozilla/5.0 (Windows; U; Windows NT 5.2; en-US) AppleWebKit/534.4 (KHTML, like Gecko) Chrome/6.0.481.0 Safari/534.4',
+#     'Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.86 Safari/533.4',
+#     'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/532.2 (KHTML, like Gecko) Chrome/4.0.223.3 Safari/532.2',
+#     'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/532.0 (KHTML, like Gecko) Chrome/4.0.201.1 Safari/532.0',
+#     'Mozilla/5.0 (Windows; U; Windows NT 5.2; en-US) AppleWebKit/532.0 (KHTML, like Gecko) Chrome/3.0.195.27 Safari/532.0',
+#     'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/530.5 (KHTML, like Gecko) Chrome/2.0.173.1 Safari/530.5',
+#     'Mozilla/5.0 (Windows; U; Windows NT 5.2; en-US) AppleWebKit/534.10 (KHTML, like Gecko) Chrome/8.0.558.0 Safari/534.10',
+#     'Mozilla/5.0 (X11; U; Linux x86_64; en-US) AppleWebKit/540.0 (KHTML,like Gecko) Chrome/9.1.0.0 Safari/540.0',
+#     'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/534.14 (KHTML, like Gecko) Chrome/9.0.600.0 Safari/534.14',
+#     'Mozilla/5.0 (X11; U; Windows NT 6; en-US) AppleWebKit/534.12 (KHTML, like Gecko) Chrome/9.0.587.0 Safari/534.12',
+#     'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.13 (KHTML, like Gecko) Chrome/9.0.597.0 Safari/534.13',
+#     'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Chrome/10.0.648.11 Safari/534.16',
+#     'Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US) AppleWebKit/534.20 (KHTML, like Gecko) Chrome/11.0.672.2 Safari/534.20',
+#     'Mozilla/5.0 (Windows NT 6.0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/14.0.792.0 Safari/535.1',
+#     'Mozilla/5.0 (Windows NT 5.1) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.872.0 Safari/535.2',
+#     'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.7 (KHTML, like Gecko) Chrome/16.0.912.36 Safari/535.7',
+#     'Mozilla/5.0 (Windows NT 6.0; WOW64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.66 Safari/535.11',
+#     'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.45 Safari/535.19',
+#     'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/535.24 (KHTML, like Gecko) Chrome/19.0.1055.1 Safari/535.24',
+#     'Mozilla/5.0 (Windows NT 6.2) AppleWebKit/536.6 (KHTML, like Gecko) Chrome/20.0.1090.0 Safari/536.6',
+#     'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/22.0.1207.1 Safari/537.1',
+#     'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.15 (KHTML, like Gecko) Chrome/24.0.1295.0 Safari/537.15',
+#     'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.93 Safari/537.36',
+#     'Mozilla/5.0 (Windows NT 6.2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1467.0 Safari/537.36',
+#     'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.101 Safari/537.36',
+#     'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1623.0 Safari/537.36',
+#     'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.116 Safari/537.36',
+#     'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.103 Safari/537.36',
+#     'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.38 Safari/537.36',
+#     'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36',
+#     'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36',
+#     'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.62 Safari/537.36',
+#     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36'
+# ]
+
+# ua_index = random.randint(0, len(_UA))
+# _HEADERS['User-Agent'] = _UA[ua_index]
 
 
 def get_proxies():
@@ -63,7 +103,7 @@ def use_proxy(proxy):
     """ Routes scholarly through a proxy (e.g. tor).
         Requires pysocks
         Proxy must be running."""
-    _SESSION.proxies ={
+    _SESSION.proxies = {
         'http': proxy
     }
 
@@ -75,7 +115,7 @@ def _handle_captcha(url):
     captcha = _SESSION.get(captcha_url, headers=_HEADERS)
     # Upload to remote host and display to user for human verification
     img_upload = requests.post('http://postimage.org/',
-        files={'upload[]': ('scholarly_captcha.jpg', captcha.text)})
+                               files={'upload[]': ('scholarly_captcha.jpg', captcha.text)})
     print(img_upload.text)
     img_url_soup = BeautifulSoup(img_upload.text, 'html.parser')
     img_url = img_url_soup.find_all(alt='scholarly_captcha')[0].get('src')
@@ -95,36 +135,37 @@ def _handle_captcha(url):
 def _get_page(pagerequest):
     """Return the data for a page on scholar.google.com"""
     # Note that we include a sleep to avoid overloading the scholar server
-    timeout = 5 + random.uniform(5, 10)
 
     if _USE_PROXY:
         proxies = get_proxies()
-        proxy_pool = cycle(proxies)
-
-        count = 0
-        while count < _RETRY:
-            proxy = next(proxy_pool)
-            use_proxy(proxy)
+        # proxies = _PROXIES
+        for ip in proxies:
+            # time.sleep(5 + random.uniform(5, 10))
+            use_proxy(ip)
             resp = _SESSION.get(
-                pagerequest, headers=_HEADERS, cookies=_COOKIES, timeout=timeout)
+                pagerequest, headers=_HEADERS, cookies=_COOKIES, timeout=30)
             if resp.status_code == 200:
-                return resp.text
-            count += 1
+                soup = BeautifulSoup(resp.text.replace(
+                    u'\xa0', u' '), 'html.parser')
+                bibs = soup.find_all('div', 'gs_or')
+                if bibs:
+                    return resp.text
     else:
-        resp = _SESSION.get(pagerequest, headers=_HEADERS, cookies=_COOKIES, timeout=timeout)
-        if resp.status_code == 200:
-            return resp.text
-        if resp.status_code == 503:
-            # Inelegant way of dealing with the G captcha
-            raise Exception('Error: {0} {1}'.format(resp.status_code, resp.reason))
-            # TODO: Need to fix captcha handling
-            # dest_url = requests.utils.quote(_SCHOLARHOST+pagerequest)
-            # soup = BeautifulSoup(resp.text, 'html.parser')
-            # captcha_url = soup.find('img').get('src')
-            # resp = _handle_captcha(captcha_url)
-            # return _get_page(re.findall(r'https:\/\/(?:.*?)(\/.*)', resp)[0])
-        else:
-            raise Exception('Error: {0} {1}'.format(resp.status_code, resp.reason))
+        time.sleep(5 + random.uniform(5, 10))
+        resp = _SESSION.get(pagerequest, headers=_HEADERS, cookies=_COOKIES)
+    if resp.status_code == 200:
+        return resp.text
+    if resp.status_code == 503:
+        # Inelegant way of dealing with the G captcha
+        raise Exception('Error: {0} {1}'.format(resp.status_code, resp.reason))
+        # TODO: Need to fix captcha handling
+        # dest_url = requests.utils.quote(_SCHOLARHOST+pagerequest)
+        # soup = BeautifulSoup(resp.text, 'html.parser')
+        # captcha_url = soup.find('img').get('src')
+        # resp = _handle_captcha(captcha_url)
+        # return _get_page(re.findall(r'https:\/\/(?:.*?)(\/.*)', resp)[0])
+    else:
+        raise Exception('Error: {0} {1}'.format(resp.status_code, resp.reason))
 
 
 def _get_soup(pagerequest):
@@ -159,6 +200,7 @@ def _search_citation_soup(soup):
         else:
             break
 
+
 def _find_tag_class_name(__data, tag, text):
     elements = __data.find_all(tag)
     for element in elements:
@@ -168,6 +210,7 @@ def _find_tag_class_name(__data, tag, text):
 
 class Publication(object):
     """Returns an object for a single publication"""
+
     def __init__(self, __data, pubtype=None):
         self.bib = dict()
         self.source = pubtype
@@ -178,7 +221,7 @@ class Publication(object):
             if citedby and not (citedby.text.isspace() or citedby.text == ''):
                 self.citedby = int(citedby.text)
             year = __data.find(class_='gsc_a_h')
-            if year and year.text and not year.text.isspace() and len(year.text)>0:
+            if year and year.text and not year.text.isspace() and len(year.text) > 0:
                 self.bib['year'] = int(year.text)
         elif self.source == 'scholar':
             databox = __data.find('div', class_='gs_ri')
@@ -276,6 +319,7 @@ class Publication(object):
 
 class Author(object):
     """Returns an object for a single author"""
+
     def __init__(self, __data):
         if isinstance(__data, str):
             self.id = __data
@@ -290,7 +334,7 @@ class Author(object):
             if email:
                 self.email = re.sub(_EMAILAUTHORRE, r'@', email.text)
             self.interests = [i.text.strip() for i in
-                           __data.find_all('a', class_=_find_tag_class_name(__data, 'a', 'one_int'))]
+                              __data.find_all('a', class_=_find_tag_class_name(__data, 'a', 'one_int'))]
             citedby = __data.find('div', class_=_find_tag_class_name(__data, 'div', 'cby'))
             if citedby and citedby.text != '':
                 self.citedby = int(citedby.text[9:])
@@ -329,7 +373,6 @@ class Author(object):
             new_coauthor.name = row.find(tabindex="-1").text
             new_coauthor.affiliation = row.find(class_="gsc_rsb_a_ext").text
             self.coauthors.append(new_coauthor)
-
 
         self.publications = list()
         pubstart = 0
@@ -384,4 +427,3 @@ def search_author_custom_url(url):
     URL should be of the form '/citation?q=...'"""
     soup = _get_soup(_HOST+url)
     return _search_citation_soup(soup)
-

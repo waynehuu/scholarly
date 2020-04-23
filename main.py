@@ -115,7 +115,7 @@ def make_filename(terms, year_since, year_to, n_items):
     return '{}_first_{}.csv'.format(fname, n_items)
 
 
-def actual_scrape(result_items, search_query, e, m, r):
+def parse_bib(result_items, search_query, e, m, r):
     results = []
 
     i = 0
@@ -178,7 +178,7 @@ def main():
                 else:
                     search_query = scholarly.search_pubs_query(kw)
 
-                results = actual_scrape(_RESULT_ITEMS, search_query, e, m, r)
+                results = parse_bib(_RESULT_ITEMS, search_query, e, m, r)
 
                 if isinstance(results, str):
                     print('\nQuery {} + {} + {}: {}'.format(e, m, r, results))
